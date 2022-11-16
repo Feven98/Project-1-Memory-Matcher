@@ -1,0 +1,12 @@
+#game_timer{
+    text-align:end;
+}
+#timer{
+    margin: 10px auto;
+}
+#flipContainer{
+    display:grid;
+}
+.flip{
+display: grid;
+} 
