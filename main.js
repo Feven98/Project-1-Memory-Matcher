@@ -6,7 +6,7 @@ const restartButton=document.querySelector('#restart');
 const gameContainer=document.querySelector('#gameBox');
 const gameCondition=document.querySelector('#gameCondition');
 const box=document.querySelector('.pageSetup')
-console.log(box.innerText);
+console.log(timeCounter.innerText);
 // console.log(timeCounter.textContent);
 // let game={
 //     action :{
@@ -35,18 +35,27 @@ console.log(box.innerText);
                     { name: "xo", image: "xo.png"},
                 ];
 // initialize the timer
-// const startMinutes=3;
-// let time=startMinutes*60;
-// setInterval(countdown, 1000);
-// function countdown(){
-//     const minutes =Math.floor(time / 60);
-//     let seconds =time % 60;
-//     // seconds=seconds<3 ? '0' + seconds : seconds;
-//     timeCounter.innerHTML= ' ${minutes}: ${seconds}';
-//     time--;
-// }
+const startMinutes=10;
+// let seconds=0;
+let time=startMinutes*60;
+setInterval(countdown, 2000);
+function countdown(){
+    let minutes =Math.floor(time/60);
+    let seconds =time % 60;
+    // seconds=seconds< 10 ? '0' + seconds : seconds
+    timeCounter.innerHTML= '${minutes}:${seconds}';
+    time--;
+}
+// let minutes=0;
+// let seconds=0;
+// const countdown=()=>{
+//     seconds +=1;
+//     if(seconds>=60){
+//         minutes+=1;
+//         seconds=0;
+//     }
 
-
+// };
 
 
 // Creating the box

@@ -15,9 +15,9 @@ body{
     align-self: flex-end;
 }
 #timer{
-    justify-content: right;
-    align-items: flex-end;
-    width: 45px;
+    /* justify-content: right; */
+    /* align-items: flex-end; */
+    width: 200px;
     background-color: antiquewhite;
 
 }
