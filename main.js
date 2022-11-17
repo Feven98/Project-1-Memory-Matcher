@@ -7,9 +7,9 @@ const gameContainer=document.querySelector('#gameBox');
 const gameCondition=document.querySelector('#gameCondition');
 const box=document.querySelector('.pageSetup')
 console.log(timeCounter.innerText);
-const ChosenCard=[]
-const ChosenCardId=[]
-const ChosenCardWon=[]
+let chosenCard=[]
+let chosenCardId=[]
+let chosenCardWon=[]
 
 
 // console.log(timeCounter.textContent);
@@ -33,7 +33,6 @@ const ChosenCardWon=[]
                 ];
 // initialize the timer
 const startMinutes=3;
-// let seconds=0;
 let time=startMinutes*60;
 setInterval(countdown, 2000);
 function countdown(){
@@ -49,7 +48,7 @@ cardType.sort(() => 0.5 - Math.random());
 
 // Creating the box
 function createBox(){
-    for(let i=0; i<cardType.length;i++){
+    for(let i=0; i<cardType.length; i++){
     const cardOne=document.createElement('img')
     cardOne.setAttribute('src','image/nature (1).png')
     cardOne.setAttribute('data-id', i)
@@ -62,30 +61,32 @@ box.appendChild(cardOne)
 //Create a condition to enable card to flip
 function flipCard() {
     const cardClass = this.getAttribute('data-id')
-    ChosenCard.push(cardType[cardClass].name)
-    ChosenCardId.push(cardClass)
+    chosenCard.push(cardType[cardClass].name)
+    chosenCardId.push(cardClass)
     this.setAttribute('src',cardType[cardClass].img)
-    if(ChosenCard.length===2){
-        setTimeout(checkMatch,500)
+    if(chosenCard.length===2){
+        setTimeout(checkMatch,200)
     }
  }
 // create condition for checkMatch
 function checkMatch(){
-    const cardPictures= document.querySelectorAll('img')
-    let firstId=ChosenCardId[0];
-    let secondtId=ChosenCardId[1];
-    if(ChosenCardId[0]===ChosenCardId[1]){
+    let cardPictures= document.querySelectorAll('img')
+    const firstId=chosenCardId[0];
+    const secondtId=chosenCardId[1];
+    if(chosenCard[0]===chosenCard[1]){
+        alert('you found a match')
         cardPictures[firstId].setAttribute('src','image/Blue (1).png')
         cardPictures[secondtId].setAttribute('src','image/Blue (1).png')
-        ChosenCardWon.push(ChosenCardId)
+        chosenCardWon.push(chosenCard)
     }else{
         cardPictures[firstId].setAttribute('src','image/nature (1).png')
         cardPictures[secondtId].setAttribute('src','image/nature (1).png')
+        alert('try again')
     }
-    // ChosenCard=[]
-    // ChosenCardId=[]
-    result.innerText=ChosenCardWon.length
-    if(ChosenCardWon.length===cardType.length/2){
+    chosenCard= []
+    chosenCardId= []
+    result.innerText=chosenCardWon.length
+    if(chosenCardWon.length===cardType.length/2){
     result.innerText='You found all of them!'
     }
 }
