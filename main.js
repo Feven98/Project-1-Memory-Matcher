@@ -7,35 +7,32 @@ const gameContainer=document.querySelector('#gameBox');
 const gameCondition=document.querySelector('#gameCondition');
 const box=document.querySelector('.pageSetup')
 console.log(timeCounter.innerText);
+const ChosenCard=[]
+const ChosenCardId=[]
+const ChosenCardWon=[]
+
+
 // console.log(timeCounter.textContent);
-// let game={
-//     action :{
-//         card,
-//         interval,
-//         firstCard:false,
-//         secondCard:false,
-//      },
-// }
  // card images and names
- const cardType=[   { name: "v", image: "v.png"},
-                    { name: "brown", image: "brown.png"},
-                    { name: "chimmny", image: "chimmny.png"},
-                    { name: "dino", image: "dino.png"},
-                    { name: "jin", image: "jin.png"},
-                    { name: "pink", image: "pink.png"},
-                    { name: "rm", image: "rm.png"},
-                    { name: "xo", image: "xo.png"},
-                    { name: "v", image: "v.png"},
-                    { name: "brown", image: "brown.png"},
-                    { name: "chimmny", image: "chimmny.png"},
-                    { name: "dino", image: "dino.png"},
-                    { name: "jin", image: "jin.png"},
-                    { name: "pink", image: "pink.png"},
-                    { name: "rm", image: "rm.png"},
-                    { name: "xo", image: "xo.png"},
+ const cardType=[   { name: "v", img: "image/v.png"},
+                    { name: "brown", img: "image/brown.png"},
+                    { name: "chimmny", img: "image/chimmny.png"},
+                    { name: "dino", img: "image/dino.png"},
+                    { name: "jin", img: "image/jin.png"},
+                    { name: "pink", img: "image/pink.png"},
+                    { name: "rm", img: "image/rm.png"},
+                    { name: "xo", img: "image/xo.png"},
+                    { name: "v", img: "image/v.png"},
+                    { name: "brown", img: "image/brown.png"},
+                    { name: "chimmny", img: "image/chimmny.png"},
+                    { name: "dino", img: "image/dino.png"},
+                    { name: "jin", img: "image/jin.png"},
+                    { name: "pink", img: "image/pink.png"},
+                    { name: "rm", img: "image/rm.png"},
+                    { name: "xo", img: "image/xo.png"},
                 ];
 // initialize the timer
-const startMinutes=10;
+const startMinutes=3;
 // let seconds=0;
 let time=startMinutes*60;
 setInterval(countdown, 2000);
@@ -46,25 +43,50 @@ function countdown(){
     timeCounter.innerHTML= '${minutes}:${seconds}';
     time--;
 }
-// let minutes=0;
-// let seconds=0;
-// const countdown=()=>{
-//     seconds +=1;
-//     if(seconds>=60){
-//         minutes+=1;
-//         seconds=0;
-//     }
-
-// };
+// sorting of card
+cardType.sort(() => 0.5 - Math.random());
 
 
 // Creating the box
-function createBoard(){
+function createBox(){
     for(let i=0; i<cardType.length;i++){
-    const cardone=document.createElement('img')
-    cardone.setAttribute('src','image/nature (1).png')
-    cardone.setAttribute('data-id', i)
-box.appendChild(cardone)
+    const cardOne=document.createElement('img')
+    cardOne.setAttribute('src','image/nature (1).png')
+    cardOne.setAttribute('data-id', i)
+    cardOne.addEventListener('click',flipCard)
+    // console.log('This works!')
+box.appendChild(cardOne)
     }
 }
-createBoard()
+//createBox()
+//Create a condition to enable card to flip
+function flipCard() {
+    const cardClass = this.getAttribute('data-id')
+    ChosenCard.push(cardType[cardClass].name)
+    ChosenCardId.push(cardClass)
+    this.setAttribute('src',cardType[cardClass].img)
+    if(ChosenCard.length===2){
+        setTimeout(checkMatch,500)
+    }
+ }
+// create condition for checkMatch
+function checkMatch(){
+    const cardPictures= document.querySelectorAll('img')
+    let firstId=ChosenCardId[0];
+    let secondtId=ChosenCardId[1];
+    if(ChosenCardId[0]===ChosenCardId[1]){
+        cardPictures[firstId].setAttribute('src','image/Blue (1).png')
+        cardPictures[secondtId].setAttribute('src','image/Blue (1).png')
+        ChosenCardWon.push(ChosenCardId)
+    }else{
+        cardPictures[firstId].setAttribute('src','image/nature (1).png')
+        cardPictures[secondtId].setAttribute('src','image/nature (1).png')
+    }
+    // ChosenCard=[]
+    // ChosenCardId=[]
+    result.innerText=ChosenCardWon.length
+    if(ChosenCardWon.length===cardType.length/2){
+    result.innerText='You found all of them!'
+    }
+}
+createBox()
