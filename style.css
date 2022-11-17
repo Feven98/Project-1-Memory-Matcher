@@ -4,8 +4,8 @@ body{
 .pageSetup{
     display: flex;
     flex-wrap: wrap;
-    height: 500px;
-    width: 70%;
+    height: 400px;
+    width: 400px;
     border: 2px solid black;
 }
 #score{
@@ -13,4 +13,11 @@ body{
     width:60px;
     height:30px;
     align-self: flex-end;
+}
+#timer{
+    justify-content: right;
+    align-items: flex-end;
+    width: 45px;
+    background-color: antiquewhite;
+
 }
