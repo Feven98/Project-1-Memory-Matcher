@@ -1,11 +1,16 @@
-.pageSetup{
-    width: 750px;
-    margin: 0 auto;
+body{
+    background-color: aqua;
 }
-#gameBox{
+.pageSetup{
     display: flex;
     flex-wrap: wrap;
     height: 500px;
     width: 70%;
     border: 2px solid black;
+}
+#score{
+    display:grid;
+    width:60px;
+    height:30px;
+    align-self: flex-end;
 }
