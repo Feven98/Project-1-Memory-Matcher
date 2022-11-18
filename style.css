@@ -1,5 +1,18 @@
 body{
-    background-color: aqua;
+    background-color:antiquewhite;
+}
+h2{
+    color: blueviolet;
+    text-align: center;
+}
+p{
+    color: blue;
+    text-align: center;
+}
+#start{
+    text-align: center;
+    display: inline-block;
+    color: crimson;
 }
 .pageSetup{
     display: flex;
@@ -7,6 +20,7 @@ body{
     height: 400px;
     width: 400px;
     border: 2px solid black;
+    
 }
 #score{
     display:grid;
@@ -15,8 +29,6 @@ body{
     align-self: flex-end;
 }
 #timer{
-    /* justify-content: right; */
-    /* align-items: flex-end; */
     width: 200px;
     background-color: antiquewhite;
 

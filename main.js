@@ -10,6 +10,9 @@ console.log(timeCounter.innerText);
 let chosenCard=[]
 let chosenCardId=[]
 let chosenCardWon=[]
+let currentSecond=60
+let TimerId=null
+
 
 
 // console.log(timeCounter.textContent);
@@ -31,17 +34,22 @@ let chosenCardWon=[]
                     { name: "rm", img: "image/rm.png"},
                     { name: "xo", img: "image/xo.png"},
                 ];
-// initialize the timer
-const startMinutes=3;
-let time=startMinutes*60;
-setInterval(countdown, 2000);
-function countdown(){
-    let minutes =Math.floor(time/60);
-    let seconds =time % 60;
-    // seconds=seconds< 10 ? '0' + seconds : seconds
-    timeCounter.innerHTML= '${minutes}:${seconds}';
-    time--;
-}
+// // initialize the timer
+let startMinutes=60;
+    timeCounter.innerHTML= startMinutes;
+    const decreamentTime=setInterval(()=>{
+        startMinutes--
+        timeCounter.innerHTML= startMinutes
+        checkTime()
+    }, 1000)
+    const checkTime=()=>{
+        if(startMinutes===0) 
+        {clearInterval(decreamentTime)
+            alert("game over")
+            startButton.disabled=true;
+        }
+    }
+
 // sorting of card
 cardType.sort(() => 0.5 - Math.random());
 
@@ -56,6 +64,7 @@ function createBox(){
     // console.log('This works!')
 box.appendChild(cardOne)
     }
+    return chosenCard;
 }
 //createBox()
 //Create a condition to enable card to flip
@@ -67,6 +76,10 @@ function flipCard() {
     if(chosenCard.length===2){
         setTimeout(checkMatch,200)
     }
+ }
+ function removeFlipCard(){
+    cardOne.removeEventListener('click',flipCard)
+    box.appendChild(cardOne)
  }
 // create condition for checkMatch
 function checkMatch(){
@@ -91,3 +104,8 @@ function checkMatch(){
     }
 }
 createBox()
+// addEventListener to start button
+//  startButton.addEventListener('click',function(){
+//   clearInterval(interval);
+//        interval=setInterval(startMinutes,1000);
+// })
