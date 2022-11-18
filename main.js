@@ -87,14 +87,14 @@ function checkMatch(){
     const firstId=chosenCardId[0];
     const secondtId=chosenCardId[1];
     if(chosenCard[0]===chosenCard[1]){
-        alert('you found a match')
+        // alert('you found a match')
         cardPictures[firstId].setAttribute('src','image/Blue (1).png')
         cardPictures[secondtId].setAttribute('src','image/Blue (1).png')
         chosenCardWon.push(chosenCard)
     }else{
         cardPictures[firstId].setAttribute('src','image/nature (1).png')
         cardPictures[secondtId].setAttribute('src','image/nature (1).png')
-        alert('try again')
+        // alert('try again')
     }
     chosenCard= []
     chosenCardId= []
