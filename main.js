@@ -35,10 +35,10 @@ let TimerId=null
                     { name: "xo", img: "Image1/xo.png"},
                 ];
 // // initialize the timer
-let startMinutes=0;
+let startMinutes=60;
     timeCounter.innerHTML= startMinutes;
     const decreamentTime=setInterval(()=>{
-        startMinutes++
+        startMinutes--
         timeCounter.innerHTML= startMinutes
         checkTime()
     }, 1000)
