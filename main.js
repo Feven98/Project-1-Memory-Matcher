@@ -6,39 +6,39 @@ const restartButton=document.querySelector('#restart');
 const gameContainer=document.querySelector('#gameBox');
 const gameCondition=document.querySelector('#gameCondition');
 const box=document.querySelector('.pageSetup')
-console.log(timeCounter.innerText);
+console.log(result.innerText);
 let chosenCard=[]
 let chosenCardId=[]
 let chosenCardWon=[]
-let currentSecond=60
+let currentSecond=0
 let TimerId=null
 
 
 
 // console.log(timeCounter.textContent);
  // card images and names
- const cardType=[   { name: "v", img: "image/v.png"},
-                    { name: "brown", img: "image/brown.png"},
-                    { name: "chimmny", img: "image/chimmny.png"},
-                    { name: "dino", img: "image/dino.png"},
-                    { name: "jin", img: "image/jin.png"},
-                    { name: "pink", img: "image/pink.png"},
-                    { name: "rm", img: "image/rm.png"},
-                    { name: "xo", img: "image/xo.png"},
-                    { name: "v", img: "image/v.png"},
-                    { name: "brown", img: "image/brown.png"},
-                    { name: "chimmny", img: "image/chimmny.png"},
-                    { name: "dino", img: "image/dino.png"},
-                    { name: "jin", img: "image/jin.png"},
-                    { name: "pink", img: "image/pink.png"},
-                    { name: "rm", img: "image/rm.png"},
-                    { name: "xo", img: "image/xo.png"},
+ const cardType=[   { name: "v", img: "Image1/v.png"},
+                    { name: "brown", img: "Image1/brown.png"},
+                    { name: "chimmny", img: "Image1/chimmny.png"},
+                    { name: "dino", img: "Image1/dino.png"},
+                    { name: "jin", img: "Image1/jin.png"},
+                    { name: "pink", img: "Image1/pink.png"},
+                    { name: "rm", img: "Image1/koya.png"},
+                    { name: "xo", img: "Image1/xo.png"},
+                    { name: "v", img: "Image1/v.png"},
+                    { name: "brown", img: "Image1/brown.png"},
+                    { name: "chimmny", img: "Image1/chimmny.png"},
+                    { name: "dino", img: "Image1/dino.png"},
+                    { name: "jin", img: "Image1/jin.png"},
+                    { name: "pink", img: "Image1/pink.png"},
+                    { name: "rm", img: "Image1/koya.png"},
+                    { name: "xo", img: "Image1/xo.png"},
                 ];
 // // initialize the timer
-let startMinutes=60;
+let startMinutes=0;
     timeCounter.innerHTML= startMinutes;
     const decreamentTime=setInterval(()=>{
-        startMinutes--
+        startMinutes++
         timeCounter.innerHTML= startMinutes
         checkTime()
     }, 1000)
@@ -58,7 +58,7 @@ cardType.sort(() => 0.5 - Math.random());
 function createBox(){
     for(let i=0; i<cardType.length; i++){
     const cardOne=document.createElement('img')
-    cardOne.setAttribute('src','image/nature (1).png')
+    cardOne.setAttribute('src','Image1/bt21.png')
     cardOne.setAttribute('data-id', i)
     cardOne.addEventListener('click',flipCard)
     // console.log('This works!')
@@ -88,12 +88,12 @@ function checkMatch(){
     const secondtId=chosenCardId[1];
     if(chosenCard[0]===chosenCard[1]){
         // alert('you found a match')
-        cardPictures[firstId].setAttribute('src','image/Blue (1).png')
-        cardPictures[secondtId].setAttribute('src','image/Blue (1).png')
+        cardPictures[firstId].setAttribute('src','Image1/bts.png')
+        cardPictures[secondtId].setAttribute('src','Image1/bts.png')
         chosenCardWon.push(chosenCard)
     }else{
-        cardPictures[firstId].setAttribute('src','image/nature (1).png')
-        cardPictures[secondtId].setAttribute('src','image/nature (1).png')
+        cardPictures[firstId].setAttribute('src','Image1/bt21.png')
+        cardPictures[secondtId].setAttribute('src','Image1/bt21.png')
         // alert('try again')
     }
     chosenCard= []
@@ -105,7 +105,4 @@ function checkMatch(){
 }
 createBox()
 // addEventListener to start button
-//  startButton.addEventListener('click',function(){
-//   clearInterval(interval);
-//        interval=setInterval(startMinutes,1000);
-// })
+  //startButton.addEventListener('click',)
