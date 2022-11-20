@@ -8,6 +8,7 @@ const gameCondition=document.querySelector('#gameCondition');
 const box=document.querySelector('.pageSetup')
 const displayMinutes=document .querySelector("#minutes")
 const displaySeconds=document .querySelector("#seconds")
+const end=document.querySelector('#gameover')
 console.log(box.innerText);
 let chosenCard=[]
 let chosenCardId=[]
@@ -57,7 +58,7 @@ box.appendChild(cardOne)
 }
 startButton.addEventListener('click',function(){
     clearInterval(value);
-    value=setInterval(startimer, 1000);
+    value=setInterval(startimer, 500);
   // cardOne.addEventListener('click',flipCard)
   });
   function startimer(){
@@ -117,6 +118,7 @@ function checkMatch(){
     if(chosenCardWon.length===cardType.length/2){
     result.innerText='You found all of them!'
     }
+    
 }
 createBox()
 }

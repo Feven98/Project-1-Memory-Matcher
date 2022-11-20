@@ -28,6 +28,7 @@ p{
     font-family: sans-serif;
     font-size:larger;
     background-color: aqua;
+    top: 25%;
  
 }
 .pageSetup{
@@ -40,7 +41,7 @@ p{
     border-radius: 20px;
     position: relative;
     left: 27%;
-    top:20%;
+    top:15%;
 }
 nav{
     display: flex;
@@ -50,4 +51,17 @@ nav{
 }
 .score{
     padding-left: 300px;
+    color: blue;
+    font-weight: bold;
+    font-style: italic;
+}
+.timerOne{
+    color: blue;
+    font-weight: bold;
+    font-style: italic;
+}
+.timer{
+    color: blue;
+    font-weight: bold;
+    font-style: italic;
 }
