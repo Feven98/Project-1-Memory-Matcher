@@ -6,13 +6,17 @@ const restartButton=document.querySelector('#restart');
 const gameContainer=document.querySelector('#gameBox');
 const gameCondition=document.querySelector('#gameCondition');
 const box=document.querySelector('.pageSetup')
-console.log(result.innerText);
+const displayMinutes=document .querySelector("#minutes")
+const displaySeconds=document .querySelector("#seconds")
+console.log(box.innerText);
 let chosenCard=[]
 let chosenCardId=[]
 let chosenCardWon=[]
 let currentSecond=0
-let TimerId=null
-
+window.onload=function(){
+    let currentSeconds=0
+    let currentMinutes=0
+    let value;
 
 
 // console.log(timeCounter.textContent);
@@ -34,21 +38,6 @@ let TimerId=null
                     { name: "rm", img: "Image1/koya.png"},
                     { name: "xo", img: "Image1/xo.png"},
                 ];
-// // initialize the timer
-let startMinutes=60;
-    timeCounter.innerHTML= startMinutes;
-    const decreamentTime=setInterval(()=>{
-        startMinutes--
-        timeCounter.innerHTML= startMinutes
-        checkTime()
-    }, 1000)
-    const checkTime=()=>{
-        if(startMinutes===0) 
-        {clearInterval(decreamentTime)
-            alert("game over")
-            startButton.disabled=true;
-        }
-    }
 
 // sorting of card
 cardType.sort(() => 0.5 - Math.random());
@@ -66,7 +55,33 @@ box.appendChild(cardOne)
     }
     return chosenCard;
 }
-//createBox()
+startButton.addEventListener('click',function(){
+    clearInterval(value);
+    value=setInterval(startimer, 1000);
+  // cardOne.addEventListener('click',flipCard)
+  });
+  function startimer(){
+    currentSeconds++;
+    if(currentSeconds<=9){
+        // cardOne.addEventListener('click',flipCard)
+      displaySeconds.innerHTML="0"+currentSeconds;
+    }
+    if(currentSeconds>9){
+      displaySeconds.innerHTML=currentSeconds;
+    }if(currentSeconds>59){
+      currentMinutes++
+      displayMinutes.innerHTML="0"+currentMinutes;
+      currentSeconds=0;
+      displaySeconds.innerHTML="0"+0;
+    }
+    if(currentMinutes>=1){
+      clearInterval(value);
+      gameOver();
+      displaySeconds.innerHTML="0"+0;
+      displayMinutes.innerHTML="0"+0;
+    }
+  }  
+// createBox()
 //Create a condition to enable card to flip
 function flipCard() {
     const cardClass = this.getAttribute('data-id')
@@ -104,5 +119,4 @@ function checkMatch(){
     }
 }
 createBox()
-// addEventListener to start button
-  //startButton.addEventListener('click',)
+}
