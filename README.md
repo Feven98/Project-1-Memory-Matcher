@@ -10,7 +10,8 @@ Inside the game will be:
 <img width="868" alt="Screenshot 2022-11-21 at 2 12 27 AM" src="https://user-images.githubusercontent.com/117063196/202988876-4dbc14b9-8dfd-4376-b776-1eaf6c30ddc7.png">
 
 
-Technology Used:  
+Technology Used:   
+
                    ❖ JavaScript
           
                    ❖ HTML
