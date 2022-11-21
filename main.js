@@ -1,34 +1,50 @@
 // declaring variables
-const timeCounter=document.querySelector('#timer');
+const timeCounter=document.querySelector('.timer');
+const second=document.querySelector('#seconds');
 const result=document.querySelector('#score');
 const startButton=document.querySelector('#start-btn');
 const restartButton=document.querySelector('#restart');
 const gameContainer=document.querySelector('#gameBox');
 const gameCondition=document.querySelector('#gameCondition');
-const box=document.querySelector('.pageSetup')
-const displayMinutes=document .querySelector("#minutes")
-const displaySeconds=document .querySelector("#seconds")
-const end=document.querySelector('#gameover')
+const box=document.querySelector('.pageSetup');
 const button=document.querySelector('.score');
-console.log(box.innerText);
+// console.log(box.innerText);
 let chosenCard=[]
 let chosenCardId=[]
 let chosenCardWon=[]
-let currentSecond=0
-// window.onload=function(){
-//     let currentSeconds=0
-//     let currentMinutes=0
-//     let value;
-startButton.addEventListener('click',startGame)
+let decrementInterval
+// addEventListener for the start game button
+startButton.addEventListener('click',() => {
+           startGame()
+           startTimer()
+ })
+//  Assigning values for the startgame hide and display
 function startGame(){
-console.log('pls');
-startButton.style.display='none';
-box.style.display='block';
-button.style.display='block'
-}
-
-
-// console.log(timeCounter.textContent);
+        console.log('pls');
+        startButton.style.display='none';
+        box.style.display='block';
+        button.style.display='block';
+        timeCounter.style.display='block';
+                    }                    
+// Declaring function for the timer
+function startTimer(){
+    let seconds=120;
+    decrementInterval=setInterval(()=>{
+    seconds--
+    if(seconds>=0){
+        second.innerHTML=seconds
+    }else{
+        gameOver()
+         }
+    },1000)
+                     }
+//  Declaring variable for win and end game
+function gameOver(){
+    timeCounter.innerText="The Game Is Over! Refresh To Try Again!"
+                   }
+function gameWin(){
+    timeCounter.innerText="Congratulation! You have Found All Of Them"
+                  }
  // card images and names
  const cardType=[   { name: "v", img: "Image1/v.png"},
                     { name: "brown", img: "Image1/brown.png"},
@@ -47,11 +63,8 @@ button.style.display='block'
                     { name: "rm", img: "Image1/koya.png"},
                     { name: "xo", img: "Image1/xo.png"},
                 ];
-
 // sorting of card
 cardType.sort(() => 0.5 - Math.random());
-
-
 // Creating the box
 function createBox(){
     for(let i=0; i<cardType.length; i++){
@@ -64,32 +77,6 @@ box.appendChild(cardOne)
     }
     return chosenCard;
 }
-// startButton.addEventListener('click',function(){
-//     clearInterval(value);
-//     value=setInterval(startimer, 500);
-//   // cardOne.addEventListener('click',flipCard)
-//   });
-//   function startimer(){
-//     currentSeconds++;
-//     if(currentSeconds<=9){
-//         // cardOne.addEventListener('click',flipCard)
-//       displaySeconds.innerHTML="0"+currentSeconds;
-//     }
-//     if(currentSeconds>9){
-//       displaySeconds.innerHTML=currentSeconds;
-//     }if(currentSeconds>59){
-//       currentMinutes++
-//       displayMinutes.innerHTML="0"+currentMinutes;
-//       currentSeconds=0;
-//       displaySeconds.innerHTML="0"+0;
-//     }
-//     if(currentMinutes>=1){
-//       clearInterval(value);
-//       gameOver();
-//       displaySeconds.innerHTML="0"+0;
-//       displayMinutes.innerHTML="0"+0;
-//     }
-//   }  
 // createBox()
 //Create a condition to enable card to flip
 function flipCard() {
@@ -100,10 +87,6 @@ function flipCard() {
     if(chosenCard.length===2){
         setTimeout(checkMatch,200)
     }
- }
- function removeFlipCard(){
-    cardOne.removeEventListener('click',flipCard)
-    box.appendChild(cardOne)
  }
 // create condition for checkMatch
 function checkMatch(){
@@ -124,7 +107,8 @@ function checkMatch(){
     chosenCardId= []
     result.innerText=chosenCardWon.length
     if(chosenCardWon.length===cardType.length/2){
-    result.innerText='You found all of them!'
+        gameWin()
+    // result.innerText='You found all of them!'
     }
     
 }
