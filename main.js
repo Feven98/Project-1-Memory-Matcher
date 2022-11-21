@@ -1,7 +1,7 @@
 // declaring variables
 const timeCounter=document.querySelector('#timer');
 const result=document.querySelector('#score');
-const startButton=document.querySelector('#start');
+const startButton=document.querySelector('#start-btn');
 const restartButton=document.querySelector('#restart');
 const gameContainer=document.querySelector('#gameBox');
 const gameCondition=document.querySelector('#gameCondition');
@@ -9,15 +9,23 @@ const box=document.querySelector('.pageSetup')
 const displayMinutes=document .querySelector("#minutes")
 const displaySeconds=document .querySelector("#seconds")
 const end=document.querySelector('#gameover')
+const button=document.querySelector('.score');
 console.log(box.innerText);
 let chosenCard=[]
 let chosenCardId=[]
 let chosenCardWon=[]
 let currentSecond=0
-window.onload=function(){
-    let currentSeconds=0
-    let currentMinutes=0
-    let value;
+// window.onload=function(){
+//     let currentSeconds=0
+//     let currentMinutes=0
+//     let value;
+startButton.addEventListener('click',startGame)
+function startGame(){
+console.log('pls');
+startButton.style.display='none';
+box.style.display='block';
+button.style.display='block'
+}
 
 
 // console.log(timeCounter.textContent);
@@ -56,32 +64,32 @@ box.appendChild(cardOne)
     }
     return chosenCard;
 }
-startButton.addEventListener('click',function(){
-    clearInterval(value);
-    value=setInterval(startimer, 500);
-  // cardOne.addEventListener('click',flipCard)
-  });
-  function startimer(){
-    currentSeconds++;
-    if(currentSeconds<=9){
-        // cardOne.addEventListener('click',flipCard)
-      displaySeconds.innerHTML="0"+currentSeconds;
-    }
-    if(currentSeconds>9){
-      displaySeconds.innerHTML=currentSeconds;
-    }if(currentSeconds>59){
-      currentMinutes++
-      displayMinutes.innerHTML="0"+currentMinutes;
-      currentSeconds=0;
-      displaySeconds.innerHTML="0"+0;
-    }
-    if(currentMinutes>=1){
-      clearInterval(value);
-      gameOver();
-      displaySeconds.innerHTML="0"+0;
-      displayMinutes.innerHTML="0"+0;
-    }
-  }  
+// startButton.addEventListener('click',function(){
+//     clearInterval(value);
+//     value=setInterval(startimer, 500);
+//   // cardOne.addEventListener('click',flipCard)
+//   });
+//   function startimer(){
+//     currentSeconds++;
+//     if(currentSeconds<=9){
+//         // cardOne.addEventListener('click',flipCard)
+//       displaySeconds.innerHTML="0"+currentSeconds;
+//     }
+//     if(currentSeconds>9){
+//       displaySeconds.innerHTML=currentSeconds;
+//     }if(currentSeconds>59){
+//       currentMinutes++
+//       displayMinutes.innerHTML="0"+currentMinutes;
+//       currentSeconds=0;
+//       displaySeconds.innerHTML="0"+0;
+//     }
+//     if(currentMinutes>=1){
+//       clearInterval(value);
+//       gameOver();
+//       displaySeconds.innerHTML="0"+0;
+//       displayMinutes.innerHTML="0"+0;
+//     }
+//   }  
 // createBox()
 //Create a condition to enable card to flip
 function flipCard() {
@@ -121,4 +129,3 @@ function checkMatch(){
     
 }
 createBox()
-}

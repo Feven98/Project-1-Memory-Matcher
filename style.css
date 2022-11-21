@@ -13,23 +13,26 @@ p{
     text-align:center;
     font-size: 30px;
 }
-#start{
+#start-btn{
     color: crimson;
     display: flex;
     position: absolute;
     text-align: center;
     align-self: flex-end;
     font-weight:bolder;
-    left: 45%;
-    width: 120px;
-    height: 30px;
+    left: 31%;
+    width: 550px;
+    height: 150px;
     margin: 10px 10px;
     font-weight: 100px;
     font-family: sans-serif;
-    font-size:larger;
+    font-size:600%;
     background-color: aqua;
     top: 25%;
- 
+    padding: 10px 20px;
+}
+#hide{
+    display: none;
 }
 .pageSetup{
     display: flex;
@@ -64,4 +67,11 @@ nav{
     color: blue;
     font-weight: bold;
     font-style: italic;
+}
+nav{
+    display: flex;
+    text-align: center;
+    padding-left: 400px;
+
+    
 }
