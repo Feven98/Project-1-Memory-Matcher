@@ -65,10 +65,3 @@ nav{
     font-weight: bold;
     font-style: italic;
 }
-nav{
-    display: flex;
-    text-align: center;
-    padding-left: 400px;
-
-    
-}
