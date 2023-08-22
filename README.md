@@ -2,7 +2,7 @@
 
 About the Project : 
 
-It’s a game that enables a player to use their mind. It has 8 different pictures and in different position that are put in 4*4 table. The player needs to match the card in two minutes(120 seconds) inorder to win. If the timer reach zero, the game will be over and you need to refresh the browser in order to play again.
+It’s a game that enables a player to use their mind. It has 8 different pictures in different position that are put in 4*4 table. The player needs to match the card in two minutes(120 seconds) inorder to win. If the timer reach zero, the game will be over and you need to refresh the browser in order to play again.
 
 Game Screenshot: 
 
