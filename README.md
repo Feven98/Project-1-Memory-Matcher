@@ -27,7 +27,7 @@ Getting Started:
 
 The game link is: [https://feven98.github.io/Project-1-Memory-Matcher/]   
 
-Next Steps: 
+Next Step: 
 
 The next step for this game will be to work on the card to not flip after the set time. Also to add levels. So when someone pass level one, it will take them to level two and so on.
 
