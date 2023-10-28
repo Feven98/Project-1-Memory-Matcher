@@ -8,6 +8,7 @@ Game Screenshots
 
 The front when the link open will be:
 
+
 <img width="1383" alt="Screenshot 2022-11-21 at 2 11 45 AM" src="https://user-images.githubusercontent.com/117063196/202988697-61c76bbb-1fba-47a2-b590-a92eda0a0a07.png">
 
 Inside the game will be:
