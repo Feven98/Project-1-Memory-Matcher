@@ -1,6 +1,6 @@
 # Project_1 =  BT21_Memory_Matches
 
-About the Project: 
+About the Project:
 
 It is a game that enables a player to use their mind. It have 8 different pictures in different positions that are put in 4*4 table. The player needs to match the cards in two minutes(120 seconds) in-order to win. If the timer reachs zero, the game will be over and you need to refresh the browser in-order to play again.
 
